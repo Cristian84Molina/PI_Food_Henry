@@ -1,0 +1,56 @@
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: orange;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    margin-top: 5px; /* Elimina el espacio en la parte superior */
+    margin-bottom: 10px;
+    padding: 5px;
+    box-shadow: 0 0 5px orange; /* Sombra naranja */
+   
+  }
+  
+  .buton {
+    display: inline-block;
+    background-color: white;
+    color: orange;
+    text-decoration: none;
+    border-radius: 50px;
+    border: 2px solid rgb(250, 248, 243); /* Borde naranja */
+    box-shadow: 0 0 5px orange; /* Sombra naranja */
+    transition: color 0.3s, transform 0.3s;
+    font-size: x-large;
+    cursor: pointer;
+  }
+  
+  .buton:hover {
+    color: white;
+    background-color: orange;
+    transform: scale(1.1);
+  }
+  
+  .selectContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .selectContainer select {
+    width: 150px;
+    height: 30px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid orange;
+    background-color: white;
+    outline: none;
+    cursor: pointer;
+    color: rgb(90, 59, 0);
+    font-weight: bold;
+  }
+  
+

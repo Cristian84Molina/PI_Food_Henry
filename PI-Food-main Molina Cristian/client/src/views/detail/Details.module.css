@@ -1,0 +1,84 @@
+.detalle {
+  display: flex;
+  height: 77vh;
+  margin-top: 2rem;
+  background-color: rgb(244, 245, 222);
+
+
+}
+
+/* etilo lado izquierdo */
+.detalle__left {
+  display: flex;
+  position: relative;
+  flex: 1;
+  flex-direction: column;
+  
+  
+  border-radius: 20px;
+}
+.detalle__left .d__diets {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.detalle__left .d__diets p {
+  min-height: 30px;
+  max-height: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: linear-gradient(180deg, orange 26.71%, #fb982f 99.36%);
+  border-radius: 15px;
+  padding: 0 4px;
+  margin: 2px;
+}
+
+.detalle__right {
+  flex: 1;
+  position: relative;
+  min-height: 77vh;
+  overflow-y: auto;
+  background-color: #fb982f;
+}
+.detalle__right .d__desc {
+  margin: 0 4rem 1rem;
+}
+.detalle__right .d__pasos {
+  margin: 0 4rem 1rem;
+}
+.d__range input {
+  width: 280px;
+  cursor: pointer;
+}
+.d__back {
+  float: left;
+  width: 70px;
+  height: 50px;
+  border-radius: 0px 20px 20px 0;
+  background-color: #fb982f;
+  
+}
+.detalle_name .d__back p {
+  color: white;
+  font-weight: bold;
+}
+.detalle_name .d_imagen {
+  width: 300;
+  height: 245;
+  border-radius: 2%;
+  box-shadow: 1px 3px 15px 1px gray;
+}
+.font{
+  color: rgb(90, 59, 0)
+}
+.font2{
+  font-size: xx-large;
+  color: rgb(90, 59, 0);
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  text-decoration: underline; /* Subrayado */
+  font-weight: bold; /* Negrita */
+}
+
