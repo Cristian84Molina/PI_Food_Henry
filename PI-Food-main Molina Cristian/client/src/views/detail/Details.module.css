@@ -65,6 +65,11 @@
   color: white;
   font-weight: bold;
 }
+
+.d_imagen {
+  width: 300px;
+  height: 250px;
+}
 .detalle_name .d_imagen {
   width: 300;
   height: 245;

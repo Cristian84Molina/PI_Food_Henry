@@ -26,8 +26,6 @@ export const getAllrecipes = () => {
     };
   };
   
-
-
  /* CREAR RECETA*/
   export function postAddRecipes(payload) {
     return async function (dispatch) {

@@ -3,7 +3,7 @@ import style from "./card.module.css";
 import { Link } from 'react-router-dom';
 
 
-export default function Card({ data }) {
+export default function Card({ data }) { // data contiene la informacion de la receta
   const capitalizeFirstLetter = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1); // primera letras de las rectas en mayuscula
   };

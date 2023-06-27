@@ -9,12 +9,12 @@ import store from "./redux/store"
 import axios from 'axios';
 import dotenv from 'dotenv';
 
-axios.defaults.baseURL = process.env.REACT_APP_API || 'http://localhost:3001';
+axios.defaults.baseURL = process.env.REACT_APP_API || 'http://localhost:3001'; 
 dotenv.config();
 
 ReactDOM.render(
   <Router>
-    <Provider store={store}>
+    <Provider store={store}>{/*  proporcionamos el store para almacenar los de forma global */}
       <App />
     </Provider>
   </Router>,

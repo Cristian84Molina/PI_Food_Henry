@@ -3,7 +3,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllDiet, postAddRecipes } from '../../redux/actions';
 import { Link, useHistory } from 'react-router-dom';
 import style from './Recipes.module.css';
-import { FaArrowLeft } from "react-icons/fa";
+
+export function validate(input) {
+  let errors = {};
+  if (!input.name) {
+    errors.name = 'Recipe name is required';
+  } else if (!input.summary) {
+    errors.summary = 'Summary is required';
+  } else if (!input.healthScore) {
+    errors.healthScore = 'Health score is required';
+  } else if (!input.diets.length) {
+    errors.diets = 'Select at least one diet';
+  }
+  return errors;
+}
 
 export default function Recipes() {
   const dispatch = useDispatch();
@@ -26,7 +39,7 @@ export default function Recipes() {
 
   const [errors, setErrors] = useState({});
 
-  function inputHandleChange(e) {
+  function inputHandleChange(e) { // Mmanejar los cambios en los campos de entrada del formulario
     setInput({ ...input, [e.target.name]: e.target.value });
     setErrors(validate({
       ...input,
@@ -34,7 +47,7 @@ export default function Recipes() {
     }));
   }
 
-  function rangeHandleChange(e) {
+  function rangeHandleChange(e) { // manejar los cambios en el campo de rango de puntuación
     const newInputRange = {
       ...input,
       healthScore: e.target.value,
@@ -43,7 +56,7 @@ export default function Recipes() {
     setErrors(validate(newInputRange));
   }
 
-  function selectHandleDiet(e) {
+  function selectHandleDiet(e) { // manejar la selección de dietas en el campo de selección
     if (!input.diets.includes(e.target.value)) {
       setInput({
         ...input,
@@ -66,7 +79,7 @@ export default function Recipes() {
     });
   }
 
-  function handleSubmit(e) {
+  function handleSubmit(e) { // envia el formulario y llama a /post
     e.preventDefault();
     dispatch(postAddRecipes(input));
     setInput({
@@ -79,9 +92,10 @@ export default function Recipes() {
       createIndb: true,
     });
     history.push('/home');
+    alert('Recipe created successfully')
   }
 
-  function handleDelete(el) {
+  function handleDelete(el) { //elimina la dieta del estado de la nueva receta
     const newInput = {
       ...input,
       diets: input.diets.filter((d) => d !== el),
@@ -215,18 +229,3 @@ export default function Recipes() {
   );
 }
 
-export function validate(input) {
-  let errors = {};
-  if (!input.name) {
-    errors.name = 'Recipe name is required';
-  } else if (!input.summary) {
-    errors.summary = 'Summary is required';
-  } else if (!input.healthScore) {
-    errors.healthScore = 'Health score is required';
-  } else if (!input.diets.length) {
-    errors.diets = 'Select at least one diet';
-  }else if (!input.image.length) {
-    errors.image = 'Select an image';
-  }
-  return errors;
-}

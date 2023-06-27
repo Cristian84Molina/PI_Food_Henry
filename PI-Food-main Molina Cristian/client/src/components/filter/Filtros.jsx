@@ -11,28 +11,28 @@ import style from "./filtros.module.css";
 export default function Filtros({ diet, setorder, setscore }) {
   const dispatch = useDispatch();
 
-  function handleOderByname(e) {
+  function handleOderByname(e) { // ordenar las recetas por nombre
     dispatch(orderByaz(e.target.value));
     setorder(e.target.value);
   }
 
-  function handleOrderScore(e) {
+  function handleOrderScore(e) { // ordenar las recetas por puntaje
     dispatch(orderByscore(e.target.value));
     setscore(e.target.value);
   }
 
-  function handleFilterDiets(e) {
+  function handleFilterDiets(e) { //filtrar las recetas por tipo de dieta
     dispatch(filterBydiet(e.target.value));
   }
 
-  function handleFilterCreated(e) {
+  function handleFilterCreated(e) {  //filtrar las recetas por origen 
     dispatch(filtercreated(e.target.value));
   }
 
   
-  function handleClick(e) {
-    /*  dispatch(getAllrecipes()); */
-    window.location.reload(false);
+  function handleClick(e) { // se ejecuta cuando reseteamos la pagina
+    /*  dispatch(getAllrecipes()); */ // actualiza el estado de la aplicación sin recargar completamente la página
+    window.location.reload(false); // recarga completamente la página y reinicia la aplicación desde el servidor
   }
 
   return (

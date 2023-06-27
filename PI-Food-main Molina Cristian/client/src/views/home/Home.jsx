@@ -21,8 +21,8 @@ const Home = () => {
     dispatch(getAllDiet());
   }, [dispatch]);
 
-  const [order, setOrder] = useState(""); //para guardar los ordenamientos
-  const [socre, setScore] = useState("");
+  const [order, setOrder] = useState(""); //Guarda el ordenamiento por name
+  const [score, setScore] = useState(""); // guarda el puntaje
 
 
   /*----------------- Paginado Nuevo----------------- */

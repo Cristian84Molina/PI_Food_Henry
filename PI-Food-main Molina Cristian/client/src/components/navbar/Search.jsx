@@ -2,15 +2,29 @@ import { React } from 'react';
 import { paginado, getNamerecipes } from '../../redux/actions';
 import { useDispatch } from 'react-redux';
 import style from './navSearch.module.css'
+import { useState } from 'react';
 
 export default function Search() {
   const dispatch = useDispatch();
+  const [timeoutId, setTimeoutId] = useState(null);
 
 
   function handleInputChangue(e) {
-    e.preventDefault();
-    dispatch(paginado(1));
-    dispatch(getNamerecipes(e.target.value));
+    clearTimeout(timeoutId); // Cancelar el timeout anterior si existe uno
+    const value = e.target.value;
+
+    if (value.trim() === '') {
+      // Si el campo de búsqueda está vacío, realizar búsqueda de todo
+      dispatch(paginado(1));
+      dispatch(getNamerecipes(''));
+    } else {
+      setTimeoutId(
+        setTimeout(() => {
+          dispatch(paginado(1));
+          dispatch(getNamerecipes(value));
+        }, 200) // Esperar 500 milisegundos antes de realizar la búsqueda
+      );
+    }
   }
 
   return (

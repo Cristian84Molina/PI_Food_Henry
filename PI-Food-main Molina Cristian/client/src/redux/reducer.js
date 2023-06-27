@@ -37,6 +37,7 @@ const rootReducer = (state = initialState, action) => {
     case POST_ADD_RECIPES:
       return {
         ...state,
+        allRecipes: action.payload,
       };
 
     case RECIPE_DETAILS: {
@@ -65,6 +66,7 @@ const rootReducer = (state = initialState, action) => {
               const recipeDiets = recipe.diets || []; // Manejo de casos donde diets no está definido
               return recipeDiets.includes(selectedDiet);
             });
+            console.log(recipesFilterDiet);
 
       return {
         ...state,
