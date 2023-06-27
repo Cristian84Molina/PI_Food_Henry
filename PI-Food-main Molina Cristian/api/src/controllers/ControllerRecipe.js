@@ -6,7 +6,7 @@ const { Recipe, Diet } = require('../db');
 const getApiInfo = async () => {
   const data = (await axios.get("https://apimocha.com/n.s.recipes/allrecipes"
     /* `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&number=100&addRecipeInformation=true` */)).data
-  const allRecipes = data.results.map(result =>{
+  const allRecipes = data.results.map(result =>{ // mapeamos results para obtener los atributos 
     return{
         id:result.id,
         name:result.title.toLowerCase(),
@@ -44,8 +44,9 @@ const getAllRecipes = async (filter) => {
   const dbData = await getDbinfo();
 
   let combinedData = [...apiData, ...dbData];
-
-  if (filter === "api") {
+  
+  // Dependiendo del filtro proporcionado como argumento, se devuelve el array completo o solo la información de la API o de la base de datos.
+  if (filter === "api") {   
     combinedData = apiData;
   } else if (filter === "created") {
     combinedData = dbData;
