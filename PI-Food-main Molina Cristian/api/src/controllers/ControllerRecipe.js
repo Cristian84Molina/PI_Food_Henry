@@ -4,8 +4,8 @@ const { Recipe, Diet } = require('../db');
 
 /* Obtengo  las recetas de la Api */
 const getApiInfo = async () => {
-  const data = (await axios.get("https://apimocha.com/n.s.recipes/allrecipes"
-    /* `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&number=100&addRecipeInformation=true` */)).data
+  const data = (await axios.get(/* "https://apimocha.com/n.s.recipes/allrecipes" */
+    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&number=100&addRecipeInformation=true`)).data
   const allRecipes = data.results.map(result =>{ // mapeamos results para obtener los atributos 
     return{
         id:result.id,

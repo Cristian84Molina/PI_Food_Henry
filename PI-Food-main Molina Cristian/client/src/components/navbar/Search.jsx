@@ -22,7 +22,7 @@ export default function Search() {
         setTimeout(() => {
           dispatch(paginado(1));
           dispatch(getNamerecipes(value));
-        }, 200) // Esperar 500 milisegundos antes de realizar la búsqueda
+        }, 300) // Esperar 500 milisegundos antes de realizar la búsqueda
       );
     }
   }
