@@ -29,7 +29,7 @@ export const getAllrecipes = () => {
  /* CREAR RECETA*/
   export function postAddRecipes(payload) {
     return async function (dispatch) {
-      let response = await axios.post("http://localhost:3001/recipes/", payload)
+      let response = await axios.post("/recipes/", payload)
       return dispatch({
             type: POST_ADD_RECIPES,
             payload: response, 
